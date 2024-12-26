@@ -1,7 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router.js';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; // 引入 Bootstrap 样式
+import 'bootstrap/dist/css/bootstrap.min.css'; // 引入 Bootstrap 样式
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './assets/global.css'; // 自定义全局样式
 
 const app = createApp(App);
