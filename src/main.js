@@ -1,4 +1,4 @@
-import { createApp } from '/@modules/vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; // 引入 Bootstrap 样式
