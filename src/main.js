@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import router from './router';
+import router from './router.js';
 import 'bootstrap/dist/css/bootstrap.min.css'; // 引入 Bootstrap 样式
 import './assets/global.css'; // 自定义全局样式
 

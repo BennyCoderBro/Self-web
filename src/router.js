@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 // 确认导入路径和大小写一致
 import Login from './components/Login.vue';
@@ -8,7 +8,7 @@ import Register from './components/Register.vue';
 import Author from './components/Author.vue';
 
 const routes = [
-  { path: '/', redirect: '/login' },
+  { path: '/', redirect: '/author' },
   { path: '/login', component: Login },
   { path: '/dashboard', component: Dashboard },
   { path: '/admin', component: Admin },
@@ -17,7 +17,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 });
 
