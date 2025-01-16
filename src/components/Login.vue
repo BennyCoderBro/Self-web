@@ -53,12 +53,19 @@ export default {
   },
   methods: {
     async handleLogin() {
+      // 校验用户名和密码是否为空
+      if (!this.username || !this.password) {
+        this.error = '用户名和密码不能为空！';
+        this.success = '';
+        return;
+      }
+
       try {
         const response = await axios.post(
           'http://127.0.0.1:5000/auth/login',
           {
-            username: this.username,
-            password: this.password
+            UserName: this.username, // 确保字段名与后端一致
+            Password: this.password
           },
           {
             headers: {
@@ -67,16 +74,18 @@ export default {
           }
         );
 
-        // 存储 Token
-        const token = response.data.token;
-        localStorage.setItem('token', token); // 建议用 sessionStorage
+        // 存储 Token 和角色信息
+        const { token, refresh_token } = response.data;
+        localStorage.setItem('token', token); // 可以改为 sessionStorage，根据需求
+        localStorage.setItem('refresh_token', refresh_token);
+
         this.success = '登录成功！';
         this.error = '';
 
         // 跳转到 Dashboard 页面
         this.$router.push('/dashboard');
       } catch (err) {
-        // 更详细的错误提示
+        // 错误处理
         if (err.response) {
           this.error = err.response.data.message || '登录失败，请检查用户名或密码！';
         } else {

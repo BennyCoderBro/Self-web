@@ -3,7 +3,9 @@
     <div style="width: 100%;padding:50px 0px">
       <h1 class="text-center mb-4" style="font-size: 50px;color: black;">Welcome to Benny's Website</h1>
       <div class="header text-center" style="color:black;">
-          <img src="/src/assets/avatar.jpg" alt="Avatar" class="profile-img mb-3" />
+          <img src="/src/assets/avatar.jpg" alt="Avatar" class="profile-img mb-3" 
+            @click="launchConfetti"
+          />
           <h1>{{ name }}</h1>
           <p>{{ title }}</p>
         </div>
@@ -18,8 +20,8 @@
       <div class="section card">
         <h3>Educations</h3>
         <div v-for="school in schools" :key="school.title" class="project-card">
-          <h4>{{ school.title }}  -------  {{ school.major }}</h4>
-          <p>{{ school.dates }}</p>
+          <h4>{{ school.title }}</h4>
+          <h5>{{ school.major }} - {{ school.dates }}</h5>
         </div>
       </div>
       <!-- Work Experience Section -->
@@ -58,6 +60,7 @@
 </template>
 
 <script>
+import confetti from 'canvas-confetti';
 export default {
   name: 'ProfileComponent',
   data() {
@@ -106,8 +109,30 @@ export default {
             '- Designed an interactive web-based front-end interface that attracted 3 investors and facilitated decision-making.'
           ]
         }
-      ]
+      ],
+      schools: [
+        {
+          title: 'Washington University in St. Louis',
+          dates:'2023.08 - 2024.12',
+          major: 'Master of Science in Business Analytics'
+        },
+        {
+          title: 'University of Toronto',
+          dates:'2017.09 - 2021.06',
+          major: 'Bachelor of Science in Applied Statistics'
+        }
+      ],
+      showSecret: false,
     };
+  },
+  methods: {
+    launchConfetti() {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
   }
 }
 </script>
