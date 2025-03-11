@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard.vue';
 import Admin from './components/Admin.vue';
 import Register from './components/Register.vue';
 import Author from './components/Author.vue';
-import Home from '../components/Home.vue';
+import Home from '../src/components/Home.vue';
 
 const routes = [
   { path: '/', redirect: '/login' },

@@ -1,24 +1,33 @@
 <template >
   <div class="bg-container">
-    <div style="width: 100%;padding:50px 0px">
-      <h1 class="text-center mb-4" style="font-size: 50px;color: black;">Welcome to Benny's Website</h1>
+    <div class="left">
       <div class="header text-center" style="color:black;">
+        <h1 class="text-center mb-4" style="font-size: 40px;color: black;width: 100%;">Welcome to Benny's Website</h1>
           <img src="/src/assets/avatar.jpg" alt="Avatar" class="profile-img mb-3" 
             @click="launchConfetti"
           />
-          <h1>{{ name }}</h1>
-          <p>{{ title }}</p>
+          <span class="name_style">{{ name }}</span>
+          <div class="bio_font">
+            <p style="box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);padding-bottom: 5px;">{{ title }}</p>
+            <p>{{ bio }}</p>
+          </div>
+          <ul class="author__urls social-icons">
+              <li>
+                <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> 
+                St.Louis MO U.S
+              </li>
+              <li><a href="zhihaoyang@wustl.edu"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
+          </ul>
         </div>
     </div>
     <div class="profile-container">
       <!-- Header Section -->
       <!-- About Me Section -->
-      <div class="section card">
-        <h3>About Me</h3>
+      <div style="padding: 20px;">
         <p>{{ bio }}</p>
       </div>
       <div class="section card">
-        <h3>Educations</h3>
+        <h3>📖 Educations</h3>
         <div v-for="school in schools" :key="school.title" class="project-card">
           <h4>{{ school.title }}</h4>
           <h5>{{ school.major }} - {{ school.dates }}</h5>
@@ -26,7 +35,7 @@
       </div>
       <!-- Work Experience Section -->
       <div class="section card">
-        <h3>Work Experience</h3>
+        <h3>💻 Work Experience</h3>
         <div v-for="experience in experiences" :key="experience.title" class="experience-card">
           <h4>{{ experience.title }}</h4>
           <p><strong>{{ experience.company }}</strong> - {{ experience.date }}</p>
@@ -36,7 +45,7 @@
 
       <!-- Projects Section -->
       <div class="section card">
-        <h3>Projects</h3>
+        <h3>📝 Projects</h3>
         <div v-for="project in projects" :key="project.title" class="project-card">
           <h4>{{ project.title }}</h4>
           <p v-for="point in project.description">{{ point }}</p>
@@ -66,8 +75,8 @@ export default {
   data() {
     return {
       name: 'Benny(Zhihao) Yang',
-      title: 'Data Engineer | Data Analyst | Full-Stack Dev | WashU MSBA | U of Toronto BSc',
-      bio: 'I am a data-driven professional with expertise in analytics, machine learning, and web development. Passionate about technology, I enjoy creating impactful solutions',
+      title: 'Data Engineer | Data Analyst | Full-Stack Dev',
+      bio: 'data-driven professional with expertise in analytics, machine learning, and web development',
       interests: ['Skiing', 'Basketball'],
       email: 'zhihaoyang@wustl.edu',
       linkedin: 'https://www.linkedin.com/in/bennyyanglove',
@@ -139,11 +148,11 @@ export default {
 
 <style scoped>
 .profile-container {
-  width: 80%;
-  margin: 0px auto;
+  width: 85%;
+  margin-left: 15%; ;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 0.95;
 }
@@ -153,9 +162,9 @@ export default {
   background-position: center; /* 图片居中显示 */
   background-repeat: no-repeat; /* 禁止图片重复 */;
   width: 100%;
-  height: 100%;
   margin: 0px;
-  border-radius: 2px;
+  border-radius: 0px;
+  display: flex;
 }
 .header {
   margin: 50px;
@@ -170,11 +179,28 @@ export default {
   margin-bottom: 20px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.85);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
 }
 .project-card, .experience-card {
   margin-top: 10px;
   padding: 10px;
+}
+.name_style {
+  font-size: 15px; 
+  font-weight: bold;
+  
+}
+.left {
+    width: 15%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    position: fixed;
+}
+.bio_font {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
 }
 </style>
