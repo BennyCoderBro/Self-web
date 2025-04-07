@@ -4,6 +4,7 @@ import Register from '../components/Register.vue';
 import Dashboard from '../components/Dashboard.vue';
 import Admin from '../components/Admin.vue';
 import Home from '../components/Home.vue';
+import Profolio from '../components/Profolio.vue';
 
 const routes = [
   { path: '/', redirect: '/login' },
@@ -11,7 +12,8 @@ const routes = [
   { path: '/register', component: Register },
   { path: '/dashboard', component: Dashboard },
   { path: '/admin', component: Admin },
-  { path: '/home', component: Home }
+  { path: '/home', component: Home },
+  { path: '/profolio', component: Profolio}
 ];
 
 const router = createRouter({
